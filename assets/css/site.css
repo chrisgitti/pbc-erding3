@@ -1,0 +1,549 @@
+/* ============================================================
+   PBC ERDING — site.css
+   ============================================================ */
+
+/* === DESIGN TOKENS === */
+:root {
+  --pbc-bg:           #0e1927;
+  --pbc-bg-soft:      #16253a;
+  --pbc-panel:        rgba(255, 255, 255, 0.07);
+  --pbc-panel-strong: rgba(255, 255, 255, 0.12);
+  --pbc-border:       rgba(255, 255, 255, 0.12);
+  --pbc-text:         #eef4ff;
+  --pbc-text-soft:    rgba(238, 244, 255, 0.78);
+  --pbc-text-muted:   rgba(238, 244, 255, 0.52);
+  --pbc-accent:       #9d70e0;
+  --pbc-accent-strong:#7c3aed;
+  --pbc-green:        #1e8c40;
+  --pbc-shadow:       0 20px 48px rgba(0, 8, 20, 0.32);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(30, 140, 64, 0.09), transparent 44%),
+    radial-gradient(ellipse at 82% 10%, rgba(107, 53, 176, 0.11), transparent 40%),
+    linear-gradient(160deg, #0e1927 0%, #080f18 100%);
+  color: var(--pbc-text);
+}
+
+a { color: inherit; text-decoration: none; }
+
+.site-shell { position: relative; z-index: 1; }
+
+/* === HEADER === */
+.site-header {
+  background: rgba(8, 15, 26, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--pbc-border);
+}
+
+.bg-pbc-dark   { background: rgba(22, 37, 58, 0.82); }
+.bg-pbc-deeper { background: rgba(8, 13, 22, 0.94);  }
+
+.border-pbc        { border-color: var(--pbc-border) !important; }
+.text-pbc-soft     { color: var(--pbc-text-soft)  !important; }
+.text-pbc-muted    { color: var(--pbc-text-muted) !important; }
+.text-pbc-accent   { color: var(--pbc-accent)     !important; }
+
+/* === BRAND / NAVBAR === */
+.navbar-brand-mark {
+  width: 2.8rem;
+  height: 2.8rem;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(157,112,224,0.18));
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.navbar-brand-copy strong,
+.footer-brand strong {
+  display: block;
+  color: #fff;
+  font-size: 1.05rem;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.navbar-brand-copy span,
+.footer-brand span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--pbc-accent);
+  font-size: 0.88rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.navbar .nav-link {
+  color: rgba(238, 244, 255, 0.70);
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-size: 0.76rem;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active { color: var(--pbc-accent); }
+
+/* === BUTTONS === */
+.btn-pbc-primary {
+  background: #ffffff;
+  color: #12091e;
+  border: 1px solid #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-weight: 700;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.btn-pbc-primary:hover {
+  background: var(--pbc-accent);
+  border-color: var(--pbc-accent);
+  color: #fff;
+}
+
+.btn-pbc-outline {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-weight: 700;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.btn-pbc-outline:hover {
+  border-color: var(--pbc-accent);
+  color: var(--pbc-accent);
+}
+
+/* === HERO === */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--pbc-border);
+}
+
+.hero::after {
+  content: "ERDING";
+  position: absolute;
+  right: -2%;
+  bottom: -10%;
+  font-size: clamp(6rem, 16vw, 15rem);
+  line-height: 0.88;
+  color: rgba(255, 255, 255, 0.022);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Accent bar — green for billiard feel */
+.hero-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.3rem;
+  background: linear-gradient(180deg, #1e8c40 0%, rgba(157,112,224,0.30) 100%);
+}
+
+.hero-copy,
+.page-hero-copy {
+  max-width: 720px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.page-hero { border-bottom: 1px solid var(--pbc-border); }
+
+/* === LABELS & EYEBROWS === */
+.eyebrow,
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--pbc-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.eyebrow::before,
+.section-label::before {
+  content: "";
+  width: 1.8rem;
+  height: 1px;
+  background: rgba(157, 112, 224, 0.60);
+}
+
+/* === HEADINGS === */
+/* Hero & page headings: readable, not aggressive */
+.hero h1 {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.10;
+  /* No text-transform: uppercase – much friendlier */
+}
+
+.page-hero h1 {
+  margin-top: 0.8rem;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+/* Divider line — with green accent */
+.hero-divider {
+  width: 3.5rem;
+  height: 2px;
+  margin: 1.6rem 0 1.4rem;
+  background: linear-gradient(90deg, var(--pbc-green), rgba(157,112,224,0.35));
+  border-radius: 2px;
+}
+
+/* === SECTIONS === */
+.section-block { padding: 5rem 0; }
+
+/* === PANELS & CARDS === */
+.pbc-card,
+.pbc-panel,
+.pbc-timeline-item,
+.pbc-stat,
+.editor-note {
+  background: var(--pbc-panel);
+  border: 1px solid var(--pbc-border);
+  box-shadow: var(--pbc-shadow);
+}
+
+.pbc-card { border-radius: 1.25rem; }
+
+.pbc-stat strong {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pbc-stat span {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--pbc-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.badge-pbc {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+}
+
+.list-divider > * + * { border-top: 1px solid var(--pbc-border); }
+
+.pbc-timeline-item {
+  position: relative;
+  padding: 1.4rem 1.5rem 1.4rem 1.8rem;
+}
+
+.pbc-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--pbc-green), var(--pbc-accent));
+}
+
+/* === FOOTER === */
+.footer-shell { border-top: 1px solid var(--pbc-border); }
+.footer-link:hover { color: var(--pbc-accent); }
+
+/* === RESPONSIVE (dark sections) === */
+@media (max-width: 991.98px) {
+  .hero::after { right: -8%; font-size: 6rem; }
+}
+
+
+/* ============================================================
+   LIGHT SECTIONS  — bright, friendly, high contrast
+   ============================================================ */
+
+.bg-pbc-light {
+  /* Warm off-white with the faintest lavender tint */
+  background: #f5f1fd;
+  color: #1c1230;
+}
+
+.bg-pbc-light .section-title,
+.bg-pbc-light h1,
+.bg-pbc-light h2,
+.bg-pbc-light h3,
+.bg-pbc-light strong {
+  color: #1c1230;
+}
+
+.bg-pbc-light .section-label,
+.bg-pbc-light .eyebrow,
+.bg-pbc-light .text-pbc-accent {
+  color: #6b35b0 !important;
+}
+
+.bg-pbc-light .section-label::before,
+.bg-pbc-light .eyebrow::before {
+  background: rgba(107, 53, 176, 0.30);
+}
+
+.bg-pbc-light .text-pbc-soft  { color: rgba(28, 18, 48, 0.74) !important; }
+.bg-pbc-light .text-pbc-muted { color: rgba(28, 18, 48, 0.50) !important; }
+
+.bg-pbc-light .pbc-card,
+.bg-pbc-light .pbc-panel,
+.bg-pbc-light .pbc-timeline-item,
+.bg-pbc-light .pbc-stat,
+.bg-pbc-light .editor-note {
+  background: #ffffff;
+  border: 1px solid rgba(107, 53, 176, 0.11);
+  box-shadow: 0 6px 20px rgba(90, 40, 150, 0.07);
+}
+
+.bg-pbc-light .badge-pbc {
+  background: rgba(107, 53, 176, 0.10);
+  color: #4a1a88;
+}
+
+.bg-pbc-light .btn-pbc-outline {
+  border-color: rgba(28, 18, 48, 0.20);
+  color: #1c1230;
+}
+
+.bg-pbc-light .btn-pbc-outline:hover {
+  border-color: #6b35b0;
+  color: #6b35b0;
+}
+
+.bg-pbc-light .border-pbc {
+  border-color: rgba(107, 53, 176, 0.12) !important;
+}
+
+.bg-pbc-light .list-divider > * + * {
+  border-top-color: rgba(107, 53, 176, 0.10);
+}
+
+.bg-pbc-light .pbc-timeline-item::before {
+  background: linear-gradient(180deg, #1e8c40, #6b35b0);
+}
+
+
+/* ============================================================
+   HERO LAYOUT
+   ============================================================ */
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-copy { max-width: 700px; }
+
+.hero-clubname-wrap {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+  padding: 0.85rem 1.1rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(157,112,224,0.08));
+}
+
+.hero-clubname-label {
+  margin-bottom: 0.35rem;
+  color: rgba(238, 244, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.hero-clubname {
+  font-size: clamp(1.2rem, 2.4vw, 2.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   POOL BILLIARD BALLS  — proper colours + correct stripe clipping
+   ============================================================ */
+
+.hero-visual {
+  position: relative;
+  min-height: 470px;
+}
+
+/* ── Base element ── */
+.pool-ball {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;          /* ← clips the stripe band to the circle boundary */
+  display: grid;
+  place-items: center;
+  box-shadow:
+    inset -10px -14px 20px rgba(0, 0, 0, 0.35),
+    inset  8px   8px 14px rgba(255, 255, 255, 0.14),
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    0  4px  8px rgba(0, 0, 0, 0.20);
+  animation: ballFloat 6s ease-in-out infinite;
+}
+
+/* ── Shine highlight (::before) ── */
+.pool-ball::before {
+  content: "";
+  position: absolute;
+  top: 11%; left: 15%;
+  width: 26%; height: 26%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  filter: blur(2px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ── Number circle (span) ── */
+.pool-ball span {
+  position: relative;
+  z-index: 4;
+  width: 40%;
+  height: 40%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+/* ──────────────────────────────────────────
+   SOLID BALLS  (1 – 8)
+   Standard pool billiard colours
+   ────────────────────────────────────────── */
+.ball-1 { background: radial-gradient(circle at 38% 30%, #fff5aa 0%, #f0c800 42%, #a08000 100%); }
+.ball-2 { background: radial-gradient(circle at 38% 30%, #aac4ff 0%, #1a50d4 42%, #0d2878 100%); }
+.ball-3 { background: radial-gradient(circle at 38% 30%, #ffaaaa 0%, #cc1a1a 42%, #7a0e0e 100%); }
+.ball-4 { background: radial-gradient(circle at 38% 30%, #cc99ff 0%, #8640cc 42%, #461880 100%); }
+.ball-5 { background: radial-gradient(circle at 38% 30%, #ffcc99 0%, #e8780a 42%, #904800 100%); }
+.ball-6 { background: radial-gradient(circle at 38% 30%, #99dd99 0%, #1e8c2e 42%, #0d4e18 100%); }
+.ball-7 { background: radial-gradient(circle at 38% 30%, #dd99aa 0%, #8c1a30 42%, #4a0a18 100%); }
+.ball-8 { background: radial-gradient(circle at 38% 30%, #888    0%, #2a2a2a 42%, #000000 100%); }
+
+/* Number text tinted to match ball colour */
+.ball-1 span { color: #8a6600; }
+.ball-2 span { color: #0d2878; }
+.ball-3 span { color: #7a0e0e; }
+.ball-4 span { color: #461880; }
+.ball-5 span { color: #6a3000; }
+.ball-6 span { color: #0a3010; }
+.ball-7 span { color: #2c0010; }
+.ball-8 span { color: #fff;    }
+
+/* ──────────────────────────────────────────
+   STRIPE BALLS  (9 – 15)
+   White base + coloured horizontal band
+   overflow: hidden on .pool-ball clips it
+   ────────────────────────────────────────── */
+.ball-9, .ball-10, .ball-11, .ball-12,
+.ball-13, .ball-14, .ball-15 {
+  background: radial-gradient(circle at 38% 30%, #ffffff 0%, #f2f2f2 55%, #c8c8c8 100%);
+}
+
+/* Stripe bands via ::after — z-index 1 sits below the number circle */
+.ball-9::after  { content: ""; position: absolute; inset: 27% 0; background: #f0c800; z-index: 1; }
+.ball-10::after { content: ""; position: absolute; inset: 27% 0; background: #1a50d4; z-index: 1; }
+.ball-11::after { content: ""; position: absolute; inset: 27% 0; background: #cc1a1a; z-index: 1; }
+.ball-12::after { content: ""; position: absolute; inset: 27% 0; background: #8640cc; z-index: 1; }
+.ball-13::after { content: ""; position: absolute; inset: 27% 0; background: #e8780a; z-index: 1; }
+.ball-14::after { content: ""; position: absolute; inset: 27% 0; background: #1e8c2e; z-index: 1; }
+.ball-15::after { content: ""; position: absolute; inset: 27% 0; background: #8c1a30; z-index: 1; }
+
+/* Numbers on stripe balls use the stripe colour */
+.ball-9  span { color: #8a6600; }
+.ball-10 span { color: #0d2878; }
+.ball-11 span { color: #7a0e0e; }
+.ball-12 span { color: #461880; }
+.ball-13 span { color: #6a3000; }
+.ball-14 span { color: #0a3010; }
+.ball-15 span { color: #2c0010; }
+
+
+/* ── Positions & sizes (hero visual) ── */
+.stripe-9 {
+  width: 118px; height: 118px;
+  top: 8%;  right: 24%;
+  animation-delay: 0s;
+}
+
+.solid-4 {
+  width: 92px; height: 92px;
+  top: 36%; right: 50%;
+  animation-delay: -1.6s;
+}
+
+.eight {
+  width: 142px; height: 142px;
+  top: 31%; right: 8%;
+  animation-delay: -2.9s;
+}
+
+.stripe-12 {
+  width: 106px; height: 106px;
+  top: 64%; right: 36%;
+  animation-delay: -1.1s;
+}
+
+.solid-7 {
+  width: 78px; height: 78px;
+  top: 70%; right: 5%;
+  animation-delay: -2.1s;
+}
+
+@keyframes ballFloat {
+  0%,  100% { transform: translateY(0)    translateX(0)   rotate(0deg);  }
+  33%        { transform: translateY(-9px) translateX(3px) rotate(2deg);  }
+  66%        { transform: translateY(-4px) translateX(-2px) rotate(-1deg); }
+}
+
+@media (max-width: 991.98px) {
+  .hero-layout { grid-template-columns: 1fr; }
+  .hero-visual  { min-height: 280px; margin-top: -1rem; }
+}
+
+@media (max-width: 767.98px) {
+  .hero-clubname { font-size: 1.3rem; }
+  .hero-visual   { min-height: 220px; transform: scale(0.85); transform-origin: center top; }
+}
